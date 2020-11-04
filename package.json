@@ -1,0 +1,30 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Electron App, used to generate mod strings for Nitrado",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Kris Hollenbeck",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "electron-installer-windows": "^3.0.0",
+    "electron-packager": "^15.1.0",
+    "fs-extra": "^9.0.1",
+    "vue": "^3.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "vue-axios": "^3.1.3"
+  }
+}
