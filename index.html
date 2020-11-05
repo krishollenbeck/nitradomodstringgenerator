@@ -12,18 +12,37 @@
     <section id="app">
       <div class="row">
         <div class="column">
-          <form-component></form-component>
-        </div>
+          <div class="flex-header">
+            <label class="label">Steam apps location:</label>
+            <a href="javascript:void(0)" title="Copy your steam apps path and paste it into the steam apps location input.">
+              <img class="info-icon" src="./images/info.png" alt="" />
+            </a>
+          </div>
+          
+          <div class="input-btn-wrapper">
+            <input data-model="steamapplocation" type="text" />
+            <button id="generate">GENERATE</button>
+          </div>
+          
+          <label class="label">Output:</label>
+          <table class="output">
+            <thead>
+              <tr>
+                  <th>Game</th>
+                  <th>Nitrado Mod String</th>
+                  <th>Number of Subscribed Items (mods)</th>
+              </tr>
+            </thead>
+            <tbody id="output">
 
-        <div class="column">
+            </tbody>
+          </table>
         </div>
-        
       </div>
     </section>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
-    <script src="./node_modules/vue/dist/vue.global.js"></script>
     <script src="./scripts/App.js"></script>
   </body>
 </html>

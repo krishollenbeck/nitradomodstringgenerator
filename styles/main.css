@@ -161,3 +161,10 @@ sub {
 .flex-header label {
     width: auto;
 }
+
+table td {
+    padding: 10px;
+    max-width: 300px;
+    line-break: anywhere;
+    text-align: center;
+}
