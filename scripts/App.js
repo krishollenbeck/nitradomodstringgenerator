@@ -1,7 +1,7 @@
 const fsExtra = require('fs-extra');
 const https = require('https');
 
-const k = '6083FC2E5FF4E12C32107A965731CC4C';
+// const k = '6083FC2E5FF4E12C32107A965731CC4C';
 const createState = (state) => {
     return new Proxy(state, {
             set(target, property, value) {
@@ -43,9 +43,7 @@ const render = () => {
     });
 };
 
-async function generate() {
-    debugger
-    
+async function generate() {    
     const path = state.steamapplocation;
 
     if (path === "path/to/your/steamapps") {
