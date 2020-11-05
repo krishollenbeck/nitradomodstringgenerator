@@ -19,6 +19,9 @@ const state = createState({
 
 const listeners = document.querySelectorAll('[data-model]');
 const generateButton = document.getElementById('generate');
+const clearButton = document.getElementById('clear');
+const infoButton = document.getElementById('info');
+const closeButton = document.getElementById('close');
 
 listeners.forEach((listener) => {
     const steamapplocation = listener.dataset.model;
@@ -32,6 +35,18 @@ generateButton.addEventListener('click', (event) => {
     generate();
 });
 
+clearButton.addEventListener('click', (event) => {
+    clear();
+});
+
+infoButton.addEventListener('click', (event) => {
+    openInfo();
+});
+
+closeButton.addEventListener('click', (event) => {
+    document.getElementsByClassName('info')[0].classList.add('hide');
+});
+
 const render = () => {
     const bindings = Array.from(document.querySelectorAll('[data-binding]')).map(
         e => e.dataset.binding
@@ -43,8 +58,24 @@ const render = () => {
     });
 };
 
-async function generate() {    
-    const path = state.steamapplocation;
+function openInfo() {
+    const classList = document.getElementsByClassName('info')[0].classList;
+
+    if (classList.contains('hide')) {
+        classList.remove('hide');
+    } else {
+        classList.add('hide');
+    }
+}
+
+function clear() {
+    document.getElementById('output').innerHTML = '';
+    document.getElementsByClassName('output')[0].classList.remove('data-loaded');
+}
+
+async function generate() {
+    // trim in case white space was copied
+    const path = state.steamapplocation.trim();
 
     if (path === "path/to/your/steamapps") {
         alert('Path is invalid! Please enter a valid path.');
@@ -70,9 +101,15 @@ async function generate() {
         }
 
         const modData = await getModData(path, workshopFiles);
-        console.log(modData)
 
-        buildResultsTable(modData);
+        // Sort alphabetically
+        const sortedData = modData.sort((a, b) => {
+            if(a.game < b.game) { return -1; }
+            if(a.game > b.game) { return 1; }
+            return 0;
+        })
+
+        buildResultsTable(sortedData);
     } else {
         alert('Path is invalid! Please enter a valid path.');
     }
@@ -93,6 +130,7 @@ function buildResultsTable(modData) {
         html.push(temp);
     });
 
+    document.getElementsByClassName('output')[0].classList.add('data-loaded');
     document.getElementById('output').innerHTML = Array.isArray(html) ? html.join('') : html;
 }
 

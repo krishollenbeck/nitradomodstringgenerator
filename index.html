@@ -15,16 +15,18 @@
           <div class="flex-header">
             <label class="label">Steam apps location:</label>
             <a href="javascript:void(0)" title="Copy your steam apps path and paste it into the steam apps location input.">
-              <img class="info-icon" src="./images/info.png" alt="" />
+              <img id="info" class="info-icon" src="./images/info.png" alt="" />
             </a>
           </div>
           
           <div class="input-btn-wrapper">
-            <input data-model="steamapplocation" type="text" />
+            <input data-model="steamapplocation" type="text" placeholder="Copy & paste steamapps path here" />
             <button id="generate">GENERATE</button>
           </div>
           
           <label class="label">Output:</label>
+          
+          <button id="clear">Clear Results</button>
           <table class="output">
             <thead>
               <tr>
@@ -37,9 +39,22 @@
 
             </tbody>
           </table>
+          <div class="message">
+            <p>No Data</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <div class="info hide">
+      <div class="info-title-bar">
+        <h1>How to find steamapps path</h1>
+        <button id="close">close</button>
+      </div>
+      <div class="content">
+        <img src="./images/find-steamapps.gif" />
+      </div>
+    </div>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
