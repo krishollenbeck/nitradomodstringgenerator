@@ -1,5 +1,5 @@
 {
-  "name": "nitradomodstring",
+  "name": "nmsg",
   "version": "1.0.0",
   "description": "Electron App, used to generate mod strings for Nitrado",
   "main": "main.js",

@@ -8,8 +8,9 @@ function createWindow () {
   const menu = Menu.buildFromTemplate(template())
   Menu.setApplicationMenu(menu)
 
+  // Set showInspectElement to false before packaging
   contextMenu({
-    showInspectElement: true,
+    showInspectElement: false,
     prepend: (defaultActions, params, browserWindow) => []
   });
 
