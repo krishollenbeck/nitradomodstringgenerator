@@ -19,6 +19,7 @@ const state = createState({
 
 const listeners = document.querySelectorAll('[data-model]');
 const generateButton = document.getElementById('generate');
+const steamAppInput = document.getElementById('steamappinput');
 const clearButton = document.getElementById('clear');
 const infoButton = document.getElementById('info');
 const closeButton = document.getElementById('close');
@@ -29,6 +30,12 @@ listeners.forEach((listener) => {
     listener.addEventListener('keyup', (event) => {
         state[steamapplocation] = listener.value;
     });
+});
+
+steamAppInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        generate();
+    }
 });
 
 generateButton.addEventListener('click', (event) => {
@@ -75,7 +82,7 @@ function clear() {
 
 async function generate() {
     // trim in case white space was copied
-    const path = state.steamapplocation.trim();
+    const path = state.steamapplocation.trim() || document.getElementById('steamappinput').value.trim();
 
     if (path === "path/to/your/steamapps") {
         alert('Path is invalid! Please enter a valid path.');

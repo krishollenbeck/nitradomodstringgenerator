@@ -9,7 +9,8 @@ function createWindow () {
   Menu.setApplicationMenu(menu)
 
   contextMenu({
-    prepend: (defaultActions, params, browserWindow) => [ ]
+    showInspectElement: true,
+    prepend: (defaultActions, params, browserWindow) => []
   });
 
   // Create the browser window.
@@ -17,8 +18,10 @@ function createWindow () {
     width: 800,
     height: 600,
     minWidth: 600,
+    icon: path.join(__dirname, 'images/app-icon.png'),
     webPreferences: {
-       nodeIntegration: true,
+      spellcheck: false,
+      nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')
     }
   })
