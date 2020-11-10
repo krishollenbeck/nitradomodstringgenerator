@@ -1,7 +1,6 @@
 const fsExtra = require('fs-extra');
 const https = require('https');
 
-// const k = '6083FC2E5FF4E12C32107A965731CC4C';
 const createState = (state) => {
     return new Proxy(state, {
             set(target, property, value) {
